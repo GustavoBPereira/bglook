@@ -17,6 +17,7 @@ class PlayEasySpider(scrapy.Spider):
                 'name': game.css('h2.product-name a::attr("title")').get(),
                 'price': game.css('span.priceAvista span.price::text').get(),
                 'description': game.css('div.descripthome::text').get().strip(),
+                'url': game.css('a.product-image::attr("href")').get(),
                 'image': game.css('a.product-image img::attr("src")').get()
             })
             yield data
